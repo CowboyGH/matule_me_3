@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment(0.5, 0),
           child: GestureDetector(
             onTap: () {
-              context.go('/menu');
+              context.go('/favorites');
             },
             child: SvgPicture.asset(
               'assets/icons/sliders.svg',
@@ -135,7 +135,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 184,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => ProductTile(),
+                    itemBuilder: (context, index) => ProductTile(
+                          isFavorite: false,
+                        ),
                     separatorBuilder: (context, index) => const SizedBox(
                           width: 19,
                         ),

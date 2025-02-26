@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:matule_me_3/features/cart/presentation/cart_screen.dart';
+import 'package:matule_me_3/features/favorites/presentation/favorites_screen.dart';
 import 'package:matule_me_3/features/home/presentation/home_screen.dart';
 import 'package:matule_me_3/features/onboarding/presentation/onboard_one.dart';
 import 'package:matule_me_3/features/onboarding/presentation/onboard_three.dart';
 import 'package:matule_me_3/features/onboarding/presentation/onboard_two.dart';
+import 'package:matule_me_3/features/product/presentation/product_screen.dart';
+import 'package:matule_me_3/features/search/presentation/search_screen.dart';
 import 'package:matule_me_3/features/splash/presentation/splash_screen.dart';
 
 final router = GoRouter(initialLocation: '/', routes: [
@@ -24,6 +28,24 @@ final router = GoRouter(initialLocation: '/', routes: [
   GoRoute(
     path: '/home',
     builder: (context, state) => HomeScreen(),
+  ),
+  GoRoute(
+    path: '/favorites',
+    builder: (context, state) => FavoritesScreen(),
+  ),
+  GoRoute(
+    path: '/search',
+    builder: (context, state) => SearchScreen(),
+  ),
+  GoRoute(
+    path: '/product/:title',
+    builder: (context, state) => ProductScreen(
+      title: state.pathParameters['title']!,
+    ),
+  ),
+  GoRoute(
+    path: '/cart',
+    builder: (context, state) => CartScreen(),
   ),
   GoRoute(
     path: '/holder',
