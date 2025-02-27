@@ -38,7 +38,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 30, horizontal: 10),
                 content: Container(
-                  height: 196,
+                  height: 196 - 50,
                   width: 335,
                   decoration: BoxDecoration(
                       color: AppColors.white,
@@ -50,8 +50,11 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                         width: 44,
                         decoration: BoxDecoration(
                             color: AppColors.blue,
-                            borderRadius: BorderRadius.circular(14)),
-                        child: SvgPicture.asset('assets/icons/email.svg'),
+                            borderRadius: BorderRadius.circular(40)),
+                        child: SvgPicture.asset(
+                          'assets/icons/email.svg',
+                          fit: BoxFit.scaleDown,
+                        ),
                       ),
                       SizedBox(height: 24),
                       Text(
@@ -62,6 +65,7 @@ class _RecoveryScreenState extends State<RecoveryScreen> {
                       SizedBox(height: 8),
                       Text(
                         'Мы Отправили Код Восстановления Пароля На Вашу Электронную Почту.',
+                        textAlign: TextAlign.center,
                         style: AppShrifts.regular16P
                             .copyWith(color: AppColors.dark),
                       ),
