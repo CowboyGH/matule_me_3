@@ -41,7 +41,7 @@ class _OnboardThreeState extends State<OnboardThree> {
               child: ElevatedButton(
                   onPressed: () {
                     _controller.onboardThreeCompleted();
-                    context.go('/home');
+                    context.push('/login');
                   },
                   style: ElevatedButton.styleFrom(
                       minimumSize: Size(double.infinity, 50),

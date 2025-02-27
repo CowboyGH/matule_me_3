@@ -17,7 +17,7 @@ class SplashController {
       } else if (mark == 3) {
         return '/three';
       } else if (mark == 0) {
-        return '/home';
+        return '/login';
       } else {
         return '/one';
       }

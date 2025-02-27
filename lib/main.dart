@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:matule_me_3/features/auth/data/repositories/auth_repository.dart';
+import 'package:matule_me_3/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:matule_me_3/router/router.dart';
 import 'package:matule_me_3/servises/preferences_service.dart';
 import 'package:matule_me_3/theme/theme.dart';
@@ -14,11 +17,18 @@ void main() {
   GetIt.instance.registerLazySingleton(() => PreferencesService());
   GetIt.instance.registerLazySingleton(() => Supabase.instance);
 
-  runApp(const MainApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => AuthBloc(AuthRepository()),
+      ),
+    ],
+    child: MatuleMe(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MatuleMe extends StatelessWidget {
+  const MatuleMe({super.key});
 
   @override
   Widget build(BuildContext context) {
