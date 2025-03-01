@@ -12,12 +12,12 @@ class ProductTile extends StatefulWidget {
 }
 
 class _ProductTileState extends State<ProductTile> {
-  late bool isFavorite;
-  bool isInCart = false;
+  late bool _isFavorite;
+  bool _isInCart = false;
 
   @override
   void initState() {
-    isFavorite = widget.isFavorite;
+    _isFavorite = widget.isFavorite;
     super.initState();
   }
 
@@ -28,104 +28,107 @@ class _ProductTileState extends State<ProductTile> {
         context.push('/product/big');
       },
       child: Container(
-        height: 184,
+        height: 182,
         width: 160,
         decoration: BoxDecoration(
             color: AppColors.white, borderRadius: BorderRadius.circular(16)),
-        child: Padding(
-          padding: EdgeInsets.only(left: 9, top: 3),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isFavorite = !isFavorite;
-                      });
-                    },
-                    child: Container(
-                        height: 28,
-                        width: 28,
-                        decoration: BoxDecoration(
-                            color: AppColors.lightGrey,
-                            borderRadius: BorderRadius.circular(40)),
-                        child: isFavorite
-                            ? SvgPicture.asset(
-                                'assets/icons/heart-red.svg',
-                                fit: BoxFit.scaleDown,
-                              )
-                            : SvgPicture.asset(
-                                'assets/icons/heart.svg',
-                                fit: BoxFit.scaleDown,
-                              )),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 6.5),
-                    child: Align(
-                      child: Image.asset(
-                        'assets/images/nike.png',
-                        fit: BoxFit.scaleDown,
-                      ),
-                    ),
-                  )
-                ],
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 9, top: 9),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isFavorite = !_isFavorite;
+                  });
+                },
+                child: Container(
+                    height: 28,
+                    width: 28,
+                    decoration: BoxDecoration(
+                        color: AppColors.lightGrey,
+                        borderRadius: BorderRadius.circular(40)),
+                    child: _isFavorite
+                        ? SvgPicture.asset(
+                            'assets/icons/heart-red.svg',
+                            fit: BoxFit.scaleDown,
+                          )
+                        : SvgPicture.asset(
+                            'assets/icons/heart.svg',
+                            fit: BoxFit.scaleDown,
+                          )),
               ),
-              // SizedBox(height: 12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(top: 24),
+                child: Image.asset(
+                  'assets/images/nike.png',
+                  fit: BoxFit.scaleDown,
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 9, top: 97.5),
+              child: Column(
                 children: [
-                  Text(
-                    'Best Seller'.toUpperCase(),
-                    style: AppShrifts.medium12P.copyWith(color: AppColors.blue),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Nike Air Max',
-                    style:
-                        AppShrifts.semibold16R.copyWith(color: AppColors.hint),
-                  ),
-                  SizedBox(height: 4),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '₽752.00',
-                        style: AppShrifts.medium14P
-                            .copyWith(color: AppColors.text),
+                        'Best Seller'.toUpperCase(),
+                        style: AppShrifts.medium12P
+                            .copyWith(color: AppColors.blue, height: 0),
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isInCart = !isInCart;
-                          });
-                        },
-                        child: Container(
-                          width: 34,
-                          height: 35.5,
-                          decoration: BoxDecoration(
-                              color: AppColors.blue,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  bottomRight: Radius.circular(16))),
-                          child: isInCart
-                              ? SvgPicture.asset(
-                                  'assets/icons/cart.svg',
-                                  fit: BoxFit.scaleDown,
-                                )
-                              : SvgPicture.asset(
-                                  'assets/icons/plus.svg',
-                                  fit: BoxFit.scaleDown,
-                                ),
-                        ),
+                      SizedBox(height: 8),
+                      Text(
+                        'Nike Air Max',
+                        style: AppShrifts.semibold16R
+                            .copyWith(color: AppColors.hint, height: 0),
+                      ),
+                      SizedBox(height: 4),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '₽752.00',
+                            style: AppShrifts.medium14P
+                                .copyWith(color: AppColors.text, height: 0),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _isInCart = !_isInCart;
+                              });
+                            },
+                            child: Container(
+                              width: 34,
+                              height: 35.5,
+                              decoration: BoxDecoration(
+                                  color: AppColors.blue,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16),
+                                      bottomRight: Radius.circular(16))),
+                              child: _isInCart
+                                  ? SvgPicture.asset(
+                                      'assets/icons/cart.svg',
+                                      fit: BoxFit.scaleDown,
+                                    )
+                                  : SvgPicture.asset(
+                                      'assets/icons/plus.svg',
+                                      fit: BoxFit.scaleDown,
+                                    ),
+                            ),
+                          )
+                        ],
                       )
                     ],
-                  )
+                  ),
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
       ),
     );

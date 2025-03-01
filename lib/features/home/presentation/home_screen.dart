@@ -144,14 +144,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: EdgeInsets.only(left: 20),
               child: SizedBox(
-                height: 184,
+                height: 182,
                 child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) => ProductTile(
                           isFavorite: false,
                         ),
                     separatorBuilder: (context, index) => const SizedBox(
-                          width: 19,
+                          width: 15,
                         ),
                     itemCount: 2),
               ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:matule_me_3/common/widgets/categories_list.dart';
 import 'package:matule_me_3/features/auth/presentation/login_screen.dart';
 import 'package:matule_me_3/features/auth/presentation/otp_screen.dart';
 import 'package:matule_me_3/features/auth/presentation/recovery_screen.dart';

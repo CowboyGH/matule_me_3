@@ -17,14 +17,12 @@ void main() {
   GetIt.instance.registerLazySingleton(() => PreferencesService());
   GetIt.instance.registerLazySingleton(() => Supabase.instance);
 
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => AuthBloc(AuthRepository()),
-      ),
-    ],
-    child: MatuleMe(),
-  ));
+  runApp(
+    BlocProvider(
+      create: (context) => AuthBloc(AuthRepository()),
+      child: MatuleMe(),
+    ),
+  );
 }
 
 class MatuleMe extends StatelessWidget {
