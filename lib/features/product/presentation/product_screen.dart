@@ -52,16 +52,22 @@ class _ProductScreenState extends State<ProductScreen> {
                 onTap: () {
                   context.push('/cart');
                 },
-                child: Container(
-                    height: 44,
-                    width: 44,
-                    decoration: BoxDecoration(
-                        color: AppColors.white,
-                        borderRadius: BorderRadius.circular(40)),
-                    child: SvgPicture.asset(
-                      'assets/icons/bag-small.svg',
-                      fit: BoxFit.scaleDown,
-                    )),
+                child: Badge(
+                  label: null,
+                  smallSize: 8,
+                  backgroundColor: AppColors.red,
+                  alignment: Alignment(.85, -.85),
+                  child: Container(
+                      height: 44,
+                      width: 44,
+                      decoration: BoxDecoration(
+                          color: AppColors.white,
+                          borderRadius: BorderRadius.circular(40)),
+                      child: SvgPicture.asset(
+                        'assets/icons/bag-small.svg',
+                        fit: BoxFit.scaleDown,
+                      )),
+                ),
               ),
             )
           ],

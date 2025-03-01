@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           alignment: Alignment(0.5, 0),
           child: GestureDetector(
             onTap: () {
-              context.go('/favorites');
+              context.go('/menu');
             },
             child: SvgPicture.asset(
               'assets/icons/sliders.svg',
@@ -44,16 +44,22 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () {
                 context.push('/cart');
               },
-              child: Container(
-                  height: 44,
-                  width: 44,
-                  decoration: BoxDecoration(
-                      color: AppColors.white,
-                      borderRadius: BorderRadius.circular(40)),
-                  child: SvgPicture.asset(
-                    'assets/icons/bag-small.svg',
-                    fit: BoxFit.scaleDown,
-                  )),
+              child: Badge(
+                label: null,
+                smallSize: 8,
+                backgroundColor: AppColors.red,
+                alignment: Alignment(.85, -.85),
+                child: Container(
+                    height: 44,
+                    width: 44,
+                    decoration: BoxDecoration(
+                        color: AppColors.white,
+                        borderRadius: BorderRadius.circular(40)),
+                    child: SvgPicture.asset(
+                      'assets/icons/bag-small.svg',
+                      fit: BoxFit.scaleDown,
+                    )),
+              ),
             ),
           )
         ],
@@ -92,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(width: 14),
                   GestureDetector(
                     onTap: () {
-                      context.push('/cart');
+                      context.push('/search');
                     },
                     child: Container(
                         height: 52,
@@ -121,9 +127,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     'Популярное',
                     style: AppShrifts.medium16R.copyWith(color: AppColors.text),
                   ),
-                  Text(
-                    'Все',
-                    style: AppShrifts.medium12P.copyWith(color: AppColors.blue),
+                  GestureDetector(
+                    onTap: () {
+                      context.push('/popular');
+                    },
+                    child: Text(
+                      'Все',
+                      style:
+                          AppShrifts.medium12P.copyWith(color: AppColors.blue),
+                    ),
                   ),
                 ],
               ),

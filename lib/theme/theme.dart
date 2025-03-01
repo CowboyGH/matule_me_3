@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final theme = ThemeData();
+final theme = ThemeData(
+    primaryColor: AppColors.white,
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.white));
 
 abstract class AppColors {
   static const Color text = Color(0xFF2B2B2B);
@@ -25,11 +27,20 @@ abstract class AppShrifts {
   static TextStyle regular14R = GoogleFonts.raleway(
       fontSize: 14, fontWeight: FontWeight.w400, letterSpacing: 0);
 
+  static TextStyle regular16R = GoogleFonts.raleway(
+      fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0);
+
+  static TextStyle medium10R = GoogleFonts.raleway(
+      fontSize: 10, fontWeight: FontWeight.w500, letterSpacing: 0);
+
   static TextStyle medium14R = GoogleFonts.raleway(
       fontSize: 14, fontWeight: FontWeight.w500, letterSpacing: 0);
 
   static TextStyle medium16R = GoogleFonts.raleway(
       fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: 0);
+
+  static TextStyle semibold12R = GoogleFonts.raleway(
+      fontSize: 12, fontWeight: FontWeight.w600, letterSpacing: 0);
 
   static TextStyle semibold14R = GoogleFonts.raleway(
       fontSize: 14, fontWeight: FontWeight.w600, letterSpacing: 0);
@@ -42,6 +53,9 @@ abstract class AppShrifts {
 
   static TextStyle semibold26R = GoogleFonts.raleway(
       fontSize: 26, fontWeight: FontWeight.w600, letterSpacing: 0);
+
+  static TextStyle bold20R = GoogleFonts.raleway(
+      fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 0);
 
   static TextStyle semibold32R = GoogleFonts.raleway(
       fontSize: 32, fontWeight: FontWeight.w600, letterSpacing: 0);
@@ -63,6 +77,9 @@ abstract class AppShrifts {
 
   static TextStyle medium16P = GoogleFonts.poppins(
       fontSize: 16, fontWeight: FontWeight.w500, letterSpacing: 0);
+
+  static TextStyle medium18P = GoogleFonts.poppins(
+      fontSize: 18, fontWeight: FontWeight.w500, letterSpacing: 0);
 
   static TextStyle medium24P = GoogleFonts.poppins(
       fontSize: 24, fontWeight: FontWeight.w500, letterSpacing: 0);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:matule_me_3/theme/theme.dart';
 
 class CategoriesList extends StatefulWidget {
@@ -29,7 +30,9 @@ class _CategoriesListState extends State<CategoriesList> {
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, index) => const SizedBox(width: 16),
             itemBuilder: (context, index) => GestureDetector(
-              onTap: () {},
+              onTap: () {
+                context.push('/category/${_categories[index]}');
+              },
               child: Container(
                 height: 40,
                 width: 108,
